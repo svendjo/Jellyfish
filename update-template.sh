@@ -48,7 +48,7 @@ function process() {
     echo "  Escaping things that would resolve to a Freemarker template variable"
     # This will replaces strings that look like this: ${xxx} with this ${r"${xxx}"}. That's how escaping works in
     # Freemarker
-    find . -type -exec sed -i 's/\${x*}/${r"\0"}/g' {} +
+    find . -type f -exec sed -i 's/\${x*}/${r"\0"}/g' {} +
 
     echo "  Updating references to jellyfish-engine"
     find . -type f -exec sed -i 's/jellyfish-engine/${service_name}/g' {} +
@@ -56,16 +56,16 @@ function process() {
     echo "  Replacing all 'EchoService' formats with variables"
     # Replace echo-example-service before echo-example due to prefix conflict
     find . -type f \
-      -exec sed -i s/EchoExampleService/${ServiceName}/g' {} + \
-      -exec sed -i s/echoExampleService/${serviceName}/g' {} + \
-      -exec sed -i s/echo-example-service/${service_name}/g' {} + \
-      -exec sed -i s/echo_example_service/${SERVICE_NAME}/g' {} +;
+      -exec sed -i 's/EchoExampleService/${ServiceName}/g' {} + \
+      -exec sed -i 's/echoExampleService/${serviceName}/g' {} + \
+      -exec sed -i 's/echo-example-service/${service_name}/g' {} + \
+      -exec sed -i 's/echo_example_service/${SERVICE_NAME}/g' {} +;
 
     find . -type f \
-      -exec sed -i s/EchoExample/${Service}/g' {} + \
-      -exec sed -i s/echo-example/${service}/g' {} + \
-      -exec sed -i s/echo_example/${SERVICE}/g' {} + \
-      -exec sed -i s/com.example.app/${package}/g' {} +;
+      -exec sed -i 's/EchoExample/${Service}/g' {} + \
+      -exec sed -i 's/echo-example/${service}/g' {} + \
+      -exec sed -i 's/echo_example/${SERVICE}/g' {} + \
+      -exec sed -i 's/com.example.app/${package}/g' {} +;
 
     # Rename files after all formats have been replaced with variables
     find . -type f \
