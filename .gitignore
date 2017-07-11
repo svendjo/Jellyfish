@@ -1,1 +1,6 @@
+**/target/*
+*.iml
+.classpath
 .idea
+.project
+generated-srcs/
