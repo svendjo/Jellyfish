@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <!--
-        This POM exists as a convenience to build all modules in the jellyfish project.
-        https://maven.apache.org/guides/mini/guide-multiple-modules.html
-    -->
+  <!--
+      This POM exists as a convenience to build all modules in the jellyfish project.
+      https://maven.apache.org/guides/mini/guide-multiple-modules.html
+  -->
 
-    <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-    <prerequisites>
-        <maven>3.0.0</maven>
-    </prerequisites>
+  <prerequisites>
+    <maven>3.0.0</maven>
+  </prerequisites>
 
-    <groupId>com.example</groupId>
-    <artifactId>jellyfish-reactor-pom</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+  <groupId>com.example</groupId>
+  <artifactId>jellyfish-reactor-pom</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-    <name>jellyfish-reactor-pom</name>
+  <name>jellyfish-reactor-pom</name>
 
-    <modules>
-        <module>echo-example-service-spec</module>
-        <module>echo-example-service</module>
-    </modules>
+  <modules>
+    <module>echo-example-service-spec</module>
+    <module>echo-example-service</module>
+    <module>jelly-cli</module>
+    <module>jelly-lib</module>
+  </modules>
 
 </project>
