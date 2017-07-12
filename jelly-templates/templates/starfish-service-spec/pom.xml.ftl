@@ -32,7 +32,7 @@
   <!--
   <build>
     <resources>
-      <directory>${project.basedir}</directory>
+      <directory>${r"${project.basedir}"}</directory>
     </resources>
     <plugins>
       <plugin>

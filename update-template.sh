@@ -48,7 +48,7 @@ function process() {
     echo "  Escaping things that would resolve to a Freemarker template variable"
     # This will replaces strings that look like this: ${xxx} with this ${r"${xxx}"}. That's how escaping works in
     # Freemarker
-    find . -type f -exec sed -i 's/\${x*}/${r"\0"}/g' {} +
+    find . -type f -exec sed -i 's/\${.*}/${r"\0"}/g' {} +
 
     echo "  Updating references to jellyfish-engine"
     find . -type f -exec sed -i 's/jellyfish-engine/${service_name}/g' {} +
