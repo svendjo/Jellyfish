@@ -7,7 +7,7 @@
     <maven>3.0.0</maven>
   </prerequisites>
 
-  <groupId>com.example</groupId>
+  <groupId>${package}</groupId>
   <artifactId>${service_name}-spec</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>

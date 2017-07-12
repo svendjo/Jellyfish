@@ -56,8 +56,8 @@ logging:
   # Logger-specific levels.
   loggers:
 
-    # Sets the level for '${package}' to DEBUG.
-    ${package}: DEBUG
+    # Sets the level for '${package}.app' to DEBUG.
+    ${package}.app: DEBUG
 
     # Redirects SQL logs to a separate file
     org.hibernate.SQL:

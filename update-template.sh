@@ -40,7 +40,7 @@ function process() {
   rm -rf "$OUT/bin"
   rm -rf "$OUT/lib"
   rm -rf "$OUT/target"
-  rm -rf "$OUT/abandoned"
+  rm -rf "$OUT/logs"
 
   (
     cd $OUT
@@ -65,7 +65,7 @@ function process() {
       -exec sed -i 's/EchoExample/${Service}/g' {} + \
       -exec sed -i 's/echo-example/${service}/g' {} + \
       -exec sed -i 's/echo_example/${SERVICE}/g' {} + \
-      -exec sed -i 's/com.example.app/${package}/g' {} +;
+      -exec sed -i 's/com.example/${package}/g' {} +;
 
     # Rename files after all formats have been replaced with variables
     find . -type f \
@@ -87,8 +87,8 @@ function process() {
     find . -type f -exec mv '{}' '{}'.ftl \;
 
     echo "  Renaming Java package directory to template variable"
-    [ -d 'src/main/java/com/example/app' ] && mv 'src/main/java/com/example/app' 'src/main/java/+=package_dir='
-    [ -d 'src/test/java/com/example/app' ] && mv 'src/test/java/com/example/app' 'src/test/java/+=package_dir='
+    [ -d 'src/main/java/com/example' ] && mv 'src/main/java/com/example' 'src/main/java/+=package_dir='
+    [ -d 'src/test/java/com/example' ] && mv 'src/test/java/com/example' 'src/test/java/+=package_dir='
 
     echo "  Cleaning up"
     rm -rf src/main/java/com

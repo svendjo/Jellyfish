@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>io.dropwizard</groupId>
-  <artifactId>dropwizard-example</artifactId>
-  <name>Dropwizard Example Application</name>
-  <version>1.2.0-SNAPSHOT</version>
+  <groupId>${package}</groupId>
+  <artifactId>${service_name}</artifactId>
+  <name>${service_name}</name>
+  <version>0.0.1-SNAPSHOT</version>
   <prerequisites>
     <maven>3.0.0</maven>
   </prerequisites>
@@ -120,7 +120,7 @@
           <transformers>
             <transformer />
             <transformer>
-              <mainClass>com.example.helloworld.HelloWorldApplication</mainClass>
+              <mainClass>${package}.${ServiceName}Application</mainClass>
             </transformer>
           </transformers>
         </configuration>
@@ -246,7 +246,7 @@
       <dependency>
         <groupId>io.dropwizard</groupId>
         <artifactId>dropwizard-bom</artifactId>
-        <version>${project.version}</version>
+        <version>1.2.0-SNAPSHOT</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -254,11 +254,8 @@
   </dependencyManagement>
   <properties>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven.site.deploy.skip>true</maven.site.deploy.skip>
-    <maven.site.skip>true</maven.site.skip>
     <maven.compiler.source>1.8</maven.compiler.source>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.deploy.skip>true</maven.deploy.skip>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 </project>

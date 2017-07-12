@@ -1,5 +1,5 @@
 swagger: '2.0'
-x-package: com.example
+x-package: ${package}
 info:
   title: Echo Service API
   description: A description of the Echo Service API
