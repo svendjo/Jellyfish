@@ -1,0 +1,2 @@
+MacBook-Pro:jellyfish svend$ mvn clean install
+MacBook-Pro:jellyfish svend$ java -jar jelly-cli/target/jelly-cli-0.0.1-SNAPSHOT-jar-with-dependencies.jar -n test-service -o ./test -p com.test -t starfish-project
