@@ -11,7 +11,7 @@ public enum TemplateType {
     STARFISH_SPEC("starfish-spec"),
     STARFISH_JAVA_CLIENT("starfish-java-client");
 
-    private static final String TEMPLATE_PATH_FORMAT = "templates/";
+    private static final String TEMPLATE_PATH_FORMAT = "jelly-templates/templates/";
     private final String type;
 
     private TemplateType(final String type) {
