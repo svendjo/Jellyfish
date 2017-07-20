@@ -17,7 +17,7 @@ produces:
   - application/json
 
 paths:
-  /echo:
+  /echoecho:
     get:
       summary: Echo API
       description: Echo the received message back verbatim

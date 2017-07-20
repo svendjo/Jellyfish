@@ -125,6 +125,50 @@
           </transformers>
         </configuration>
       </plugin>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.10</version>
+        <executions>
+          <execution>
+            <id>unpack</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>${package}</groupId>
+                  <artifactId>${service_name}-spec</artifactId>
+                  <type>jar</type>
+                  <includes>api.yaml</includes>
+                  <outputDirectory>${r"${swagger-spec-temp-dir}"}</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>io.swagger</groupId>
+        <artifactId>swagger-codegen-maven-plugin</artifactId>
+        <version>2.2.2</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <apiPackage>${package}</apiPackage>
+              <inputSpec>../${service_name}-spec/specs/api.yaml</inputSpec>
+              <language>jaxrs</language>
+              <configOptions>
+                <sourceFolder>src/main/java</sourceFolder>
+              </configOptions>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
   <profiles>
@@ -253,10 +297,15 @@
     </dependencies>
   </dependencyManagement>
   <properties>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <swagger-core-version>1.5.12</swagger-core-version>
+    <spec-file>${r"${swagger-spec-temp-dir}"}/api.yaml</spec-file>
+    <swagger-spec-temp-dir>${r"${project.build.directory}"}</swagger-spec-temp-dir>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <gson-version>2.6.2</gson-version>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <okhttp-version>2.7.5</okhttp-version>
+    <maven.compiler.source>1.8</maven.compiler.source>
   </properties>
 </project>
 

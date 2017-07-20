@@ -94,5 +94,6 @@ public class EchoExampleServiceApplication extends Application<EchoExampleServic
         environment.jersey().register(new PeopleResource(dao));
         environment.jersey().register(new PersonResource(dao));
         environment.jersey().register(new FilteredResource());
+        environment.jersey().register(new EchoResource());
     }
 }
