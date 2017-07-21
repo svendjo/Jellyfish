@@ -360,6 +360,51 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <!-- Copies (does not filter) config resources from config to target/config -->
+          <execution>
+            <id>copy-config-resources</id>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <phase>process-resources</phase>
+            <configuration>
+              <outputDirectory>${project.build.directory}/config</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>config</directory>
+                  <includes>
+                    <include>*.conf</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <!-- Copies environment config resources from environment-config to target/environment-config -->
+          <execution>
+            <id>copy-environment-config</id>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <phase>process-resources</phase>
+            <configuration>
+              <outputDirectory>${project.build.directory}/environment-config</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>environment-config</directory>
+                  <includes>
+                    <include>*.env</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 

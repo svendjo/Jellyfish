@@ -169,6 +169,48 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <id>copy-config-resources</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/config</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>config</directory>
+                  <includes>
+                    <include>*.conf</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-environment-config</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/environment-config</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>environment-config</directory>
+                  <includes>
+                    <include>*.env</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
   <profiles>
